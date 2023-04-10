@@ -1,7 +1,7 @@
 <template>
   <div class="work-hour" ref="thisDom">
     <div class="header flex">
-      <div class="flex-c" @click="showChooseDate = true">
+      <!-- <div class="flex-c" @click="showChooseDate = true">
         <van-field v-model="checkedDate" readonly="" right-icon="arrow-down" input-align="center" />
       </div>
       <div class="flex-c right">
@@ -9,6 +9,9 @@
           <span>合计工时：</span>
           <span class="total" :class="{ warn: totalHour < 7.5 }">{{ totalHour }}</span>
         </div>
+      </div> -->
+      <div class="flex">
+        <van-field v-model="searchKey" input-align="left" clearable left-icon="music-o" placeholder="显示清除图标"/>
       </div>
 
     </div>
@@ -73,7 +76,7 @@ import { useStore } from 'vuex'
 import { useRouter, useRoute } from "vue-router";
 import { getGSList, deleteGS, submitGS } from '@/api/hour';
 import { searchQuick } from '@/api/QQMusicApi';
-import { Toast, Dialog, Field, CellGroup} from 'vant';
+import { Toast, Dialog, CellGroup} from 'vant';
 
 const VanDialog = Dialog.Component;
 const thisDom = ref();
@@ -84,6 +87,8 @@ const totalHour = ref(0)
 let gstj_doneFlag = false;
 
 const checkedDate = ref('')
+
+const searchKey = ref('')
 
 let now = new Date();
 let d1 = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
@@ -99,7 +104,7 @@ const gsList = reactive([]);
 onMounted(() => {
 })
 onActivated(() => {
-  getGsList();
+  // getGsList();
   search();
 })
 
@@ -128,9 +133,9 @@ function getGsList() {
 
 function search() {
   let param = new FormData();
-  param.append('key', 'Another Day Of Sun');
+  param.append('key', searchKey);
   searchQuick(param).then(res => {
-    // console.log(res)
+    console.log(res)
   })
 }
 
