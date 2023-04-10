@@ -356,9 +356,9 @@ function projectClick(projectObj) {
   .hour-date {
     padding-left: 10px;
     margin-bottom: 16px;
-    .input-hour{
-      // border:1px 
-    }
+    // .input-hour{
+    //   // border:1px 
+    // }
   }
 
   .item {
