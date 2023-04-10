@@ -30,7 +30,7 @@ module.exports = defineConfig({
         secure: false,                // 如果是https接口，需要配置这个参数
         changeOrigin: true,           // 是否跨域
         ws: false,                    // 是否启用websockets
-        // pathRewrite: { '/api': '' }, // 重写请求路径  开头是/api的替换为 空串
+        pathRewrite: { '/QQMusicApi': '' }, // 重写请求路径  开头是/api的替换为 空串
       },
     },
   },

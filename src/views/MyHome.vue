@@ -71,8 +71,9 @@ export default {
 import { computed, reactive, ref, onMounted, onActivated } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from "vue-router";
-import { getGSList, deleteGS, submitGS} from '@/api/hour';
-import { Toast , Dialog} from 'vant';
+import { getGSList, deleteGS, submitGS } from '@/api/hour';
+import { searchQuick } from '@/api/QQMusicApi';
+import { Toast, Dialog, Field, CellGroup} from 'vant';
 
 const VanDialog = Dialog.Component;
 const thisDom = ref();
@@ -99,6 +100,7 @@ onMounted(() => {
 })
 onActivated(() => {
   getGsList();
+  search();
 })
 
 // 工时列表
@@ -121,6 +123,14 @@ function getGsList() {
         Dialog({ message: '请留意已提交的总工时少于7.5小时' });
       }
     }
+  })
+}
+
+function search() {
+  let param = new FormData();
+  param.append('key', 'Another Day Of Sun');
+  searchQuick(param).then(res => {
+    // console.log(res)
   })
 }
 
