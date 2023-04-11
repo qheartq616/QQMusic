@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import '@/assets/css/reset.scss';
 import '@/assets/css/common.scss';
-import { Form, Field, Cell, CellGroup, Button, Icon, Search, Checkbox, RadioGroup, Radio, CheckboxGroup, Popup, Stepper, Tab, Tabs, Badge } from 'vant';
+import { Form, Field, Cell, CellGroup, Button, Icon, Search, Checkbox, RadioGroup, Radio, CheckboxGroup, Popup, Stepper, Tab, Tabs, Badge, ConfigProvider } from 'vant';
 import 'vant/lib/index.css';
 import util from '@/utils/util'
 
@@ -40,6 +40,7 @@ app.use(store)
   .use(Tab)
   .use(Tabs)
   .use(Badge)
+  .use(ConfigProvider)
   .mount('#app');
 
 

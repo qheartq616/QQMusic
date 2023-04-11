@@ -14,7 +14,7 @@ import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { Loading } from 'vant';
 
-window.document.title = '深圳项目实施与服务部'
+window.document.title = '我也不知道要叫啥'
 const router = new useRouter();
 const store = new useStore();
 let isMobile = util.clientIsMobile();
