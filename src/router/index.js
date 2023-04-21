@@ -20,7 +20,7 @@ const routes = [
       needLogin: false,
       title: '首页',
     },
-    component: () => import('@/views/MyHome.vue'),
+    component: () => import('@/views/Home.vue'),
   },
   // {
   //   path: '/login',
