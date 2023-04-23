@@ -13,7 +13,13 @@
     <div class="content">
       <div v-if="!songList.length" class="no-data">暂无记录</div>
       <van-cell-group inset v-else>
-        <van-cell center :title="song.name" value="内容" label="描述信息" v-for="(song, index) in songList" :key="song.id" />
+        <van-cell center value-class="custom-albumPic" :title="song.name" value="内容" label="描述信息" v-for="(song, index) in songList" :key="song.id" >
+          <template #value>
+            <img class="custom-albumPic" :src="'https://y.gtimg.cn/music/photo_new/T002R300x300M000'+song.albummid+'.jpg'" />
+            <!-- <span class="custom-value">
+            </span> -->
+          </template>
+        </van-cell>
       </van-cell-group>
     </div>
   </div>
@@ -78,6 +84,15 @@ function search() {
     .van-cell__title {
 			text-align: left;
 		}
+    .custom-value {
+      vertical-align: middle;
+      max-height: 100%;
+    }
+    .custom-albumPic {
+      height: 40px;
+      max-width: 100%;
+    }
+    
   }
 
 }
