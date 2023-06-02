@@ -7,13 +7,13 @@ import { toRaw } from '@vue/reactivity';
 const routesList = store.state.routesList
 
 const routes = [
-  //基于工时页面修改就可以了
+  // 默认页面
   {
     path: '/',
     redirect: '/home',
   },
   {
-    // 工时填报-首页
+    // 搜索首页
     path: '/home',
     name: 'home',
     meta: {
@@ -22,6 +22,26 @@ const routes = [
     },
     component: () => import('@/views/Home.vue'),
   },
+  {
+    // 播放页面
+    path: '/play',
+    name: 'play',
+    meta: {
+      needLogin: false,
+      title: '播放',
+    },
+    component: () => import('@/views/Play.vue'),
+  },
+  // {
+  //   // 工时填报-首页
+  //   path: '/home',
+  //   name: 'home',
+  //   meta: {
+  //     needLogin: false,
+  //     title: '首页',
+  //   },
+  //   component: () => import('@/views/Home.vue'),
+  // },
   // {
   //   path: '/login',
   //   name: 'login',

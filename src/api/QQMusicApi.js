@@ -24,3 +24,27 @@ export const searchSong = (params) => {
         }
     })
 }
+
+// 在线播放
+export const songUrls = (params) => {
+    return server({
+        url: "/QQMusicApi/song/urls",
+        method: "post",
+        data: params,
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8'
+        }
+    })
+}
+
+// 在线下载
+export const songUrl = (params) => {
+    return server({
+        url: "/QQMusicApi/song/url",
+        method: "post",
+        data: params,
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8'
+        }
+    })
+}
