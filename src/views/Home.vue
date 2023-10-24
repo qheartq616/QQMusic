@@ -14,7 +14,7 @@
       <div v-if="!songList.length" class="no-data">暂无记录</div>
       <van-cell-group inset v-else>
         <van-cell clickable center @click="playMusic(song)" value-class="custom-albumPic" :title="song.name" value="内容"
-          label="描述信息" v-for="(song, index) in songList" :key="song.id">
+          :label="song.albumname" v-for="(song, index) in songList" :key="song.id">
           <template #value>
             <img class="custom-albumPic" :src="'https://y.gtimg.cn/music/photo_new/T002R300x300M000' + song.albummid + '.jpg'" />
             <!-- <span class="custom-value">
@@ -56,7 +56,7 @@ onActivated(() => {
 
 function search() {
   let param = new FormData();
-  param.append('key', searchKey.value || '周杰伦');
+  param.append('key', searchKey.value || '梁静茹');
   searchSong(param).then(res => {
     if (res.result == 100) {
       songList.value=res.data.list
@@ -71,9 +71,9 @@ function playMusic(song) {
   let param = new FormData();
   param.append('id', song.songmid);
   // 这个字段为其他接口中返回的 strMediaId 字段，可不传，不传默认同 songmid，但是部分歌曲不传可能会出现能获取到链接，但实际404， 所以有条件的大家都传吧
-  param.append('mediaId', song.strMediaMid);
-  //默认 0，非 0 时直接重定向到播放链接
-  param.append('isRedirect', 0);
+  // param.append('mediaId', song.strMediaMid);
+  // 默认 0，非 0 时直接重定向到播放链接
+  // param.append('isRedirect', 0);
   songUrl(param).then(res => {
     console.log(res)
     if (res.result == 100) {

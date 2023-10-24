@@ -6,12 +6,17 @@
 
 ## 快速上手
 
-### Project setup
+### 安装依赖
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 启动
+```
+npm run dev
+```
+
+### 打包
 ```
 npm run dev
 ```
